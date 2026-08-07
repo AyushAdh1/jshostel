@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import hostelExterior from "./assets/hostel photo.jpg";
 import hostelPanorama from "./assets/360-panorama.jpg";
+import activityHike from "./assets/activity-hike.jpg";
+import activitySummit from "./assets/activity-summit.jpg";
 
 const amenities = [
   {
@@ -52,10 +55,26 @@ const rooms = [
     price: "NPR 9,500",
     unit: "/month",
     badges: ["Most Affordable", "Community Feel", "Good for Groups"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCo0WK1TBKjtKypEIgKl3M2BxjfXSIf94VqmpV9schRe3aMqOGowNCdKuINKEtcW5ELG-O4EwX3HlJxwKKsN9u-ChGoZBmIhfw0nYZV2sWoR-KmQphNSVfxZWwOZ-UUWF_nNTr2oayA7yqv31rgUjW68FesFKQvmdA8FJHmoPEwmr_bljq4u-iqfgyYwAunDQ2IVXGkijP4IALCFKTl-gCzG3CKg1DYkwgEpECLMq-kNFF2QuD_Uwib",
+    image: activityHike,
     description:
       "A budget-friendly setup for three people that keeps the space practical and comfortable.",
+  },
+];
+
+const activities = [
+  {
+    image: activitySummit,
+    alt: "Residents celebrating at a hilltop summit on a group hike",
+    title: "Weekend Hikes",
+    description:
+      "We plan the occasional trip out of the valley — residents joined a summit hike together earlier this year.",
+  },
+  {
+    image: activityHike,
+    alt: "Group of residents posing together on a forest trail during a hike",
+    title: "Group Outings",
+    description:
+      "Trips like this are a chance for residents to unwind together and build friendships beyond the hostel.",
   },
 ];
 
@@ -86,6 +105,24 @@ const footerLinks = [
 ];
 
 function App() {
+  const [lightbox, setLightbox] = useState(null);
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setLightbox(null);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -100,6 +137,7 @@ function App() {
         <nav className="topnav" aria-label="Primary navigation">
           <a href="#amenities">Amenities</a>
           <a href="#owner-says">Owner Says</a>
+          <a href="#activities">Activities</a>
           <a href="#rooms">Rooms</a>
           <a href="#reviews">Reviews</a>
           <a href="#location">Location</a>
@@ -154,7 +192,25 @@ function App() {
 
           <div className="amenities-grid">
             <article className="panel-card panel-card-large">
-              <img src={hostelPanorama} alt="J.S Boys Hostel rooftop panorama" />
+              <button
+                type="button"
+                className="zoomable-image"
+                onClick={() =>
+                  setLightbox({
+                    src: hostelPanorama,
+                    alt: "J.S Boys Hostel rooftop panorama",
+                  })
+                }
+                aria-label="View full rooftop panorama photo"
+              >
+                <img
+                  src={hostelPanorama}
+                  alt="J.S Boys Hostel rooftop panorama"
+                />
+              </button>
+              <span className="zoom-hint" aria-hidden="true">
+                🔍 View full photo
+              </span>
               <div className="panel-overlay">
                 <span className="panel-badge">Hostel photo</span>
                 <h3>360 Balcony View</h3>
@@ -192,9 +248,22 @@ function App() {
           </div>
 
           <article className="owner-say-card">
-            <div className="owner-say-image-wrap" aria-hidden="true">
+            <button
+              type="button"
+              className="owner-say-image-wrap zoomable-image"
+              onClick={() =>
+                setLightbox({
+                  src: hostelExterior,
+                  alt: "J.S Boys Hostel exterior",
+                })
+              }
+              aria-label="View full exterior photo"
+            >
               <img src={hostelExterior} alt="J.S Boys Hostel exterior" />
-            </div>
+              <span className="zoom-hint" aria-hidden="true">
+                🔍 View full photo
+              </span>
+            </button>
             <div className="owner-say-split">
               <p className="owner-quote">
                 “We keep the hostel simple, clean, and comfortable. I want
@@ -214,6 +283,53 @@ function App() {
           </article>
         </section>
 
+        <section id="activities" className="section adventure-section">
+          <div className="section-heading">
+            <h2>Fun & Activities</h2>
+            <p>
+              Life here isn't just about the room. Residents regularly join
+              group hikes and weekend trips outside the valley together.
+            </p>
+          </div>
+
+          <div className="adventure-gallery">
+            {activities.map((activity) => (
+              <article className="adventure-card" key={activity.title}>
+                <button
+                  type="button"
+                  className="zoomable-image"
+                  onClick={() =>
+                    setLightbox({ src: activity.image, alt: activity.alt })
+                  }
+                  aria-label={`View full photo: ${activity.title}`}
+                >
+                  <img src={activity.image} alt={activity.alt} />
+                  <span className="zoom-hint" aria-hidden="true">
+                    🔍 View full photo
+                  </span>
+                </button>
+                <div className="adventure-overlay">
+                  <span className="panel-badge">Resident trip</span>
+                  <h3>{activity.title}</h3>
+                  <p>{activity.description}</p>
+                </div>
+              </article>
+            ))}
+
+            <article className="adventure-card adventure-card-note">
+              <div className="adventure-note-card">
+                <span className="panel-badge">Community</span>
+                <h3>Made for making friends</h3>
+                <p>
+                  Beyond the shared rooms and lounge, residents plan hikes,
+                  festivals, and weekend outings together — the kind of
+                  memories that make a hostel feel like home.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section id="rooms" className="section rooms-section">
           <div className="section-heading section-heading-row">
             <div>
@@ -231,6 +347,9 @@ function App() {
           <div className="rooms-grid">
             {rooms.map((room) => (
               <article className="room-card" key={room.title}>
+                <div className="room-image-wrap">
+                  <img src={room.image} alt={`${room.title} room at J.S Boys Hostel`} loading="lazy" />
+                </div>
                 <div className="room-content">
                   <div className="room-type-pill">{room.title}</div>
                   <div className="room-title-row">
@@ -345,6 +464,31 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {lightbox && (
+        <div
+          className="lightbox-backdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.alt}
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            className="lightbox-close"
+            onClick={() => setLightbox(null)}
+            aria-label="Close full photo view"
+          >
+            ✕
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="lightbox-image"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
