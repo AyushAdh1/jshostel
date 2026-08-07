@@ -8,3 +8,4 @@ A polished single-page React landing page for JS Boys Hostel in Balkumari, Lalit
 - Start the dev server: npm run dev
 - Build for production: npm run build
 # jshostel
+# jshostel
