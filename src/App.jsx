@@ -29,7 +29,7 @@ const amenities = [
 const rooms = [
   {
     title: "Single Seater",
-    price: "NPR 14,000",
+    price: "NPR 14,500",
     unit: "/month",
     badges: ["Private Corner", "Best for Focus", "Secure Entry"],
     image:
@@ -39,7 +39,7 @@ const rooms = [
   },
   {
     title: "Dual Seater",
-    price: "NPR 11,000",
+    price: "NPR 11,500",
     unit: "/month",
     badges: ["Shared Comfort", "Balanced Price", "Clean Setup"],
     image:
@@ -49,7 +49,7 @@ const rooms = [
   },
   {
     title: "Three Seater",
-    price: "NPR 9,000",
+    price: "NPR 9,500",
     unit: "/month",
     badges: ["Most Affordable", "Community Feel", "Good for Groups"],
     image:
@@ -89,10 +89,10 @@ function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <a className="brand" href="#home" aria-label="JS Boys Hostel home">
+        <a className="brand" href="#home" aria-label="J.S Boys Hostel home">
           <span className="brand-mark">J</span>
           <span>
-            <strong>JS Boys Hostel</strong>
+            <strong>J.S Boys Hostel</strong>
             <small>Balkumari, Lalitpur</small>
           </span>
         </a>
@@ -124,7 +124,7 @@ function App() {
             </div>
             <h1>Your Home Away from Home in the Heart of the City</h1>
             <p>
-              JS Boys Hostel offers a secure, tidy, and practical place to stay
+              J.S Boys Hostel offers a secure, tidy, and practical place to stay
               with reliable facilities, a calm environment, and easy access to
               daily essentials in Lalitpur.
             </p>
@@ -145,7 +145,7 @@ function App() {
 
         <section id="amenities" className="section amenities-section">
           <div className="section-heading">
-            <h2>Life at JS Boys Hostel</h2>
+            <h2>Life at J.S Boys Hostel</h2>
             <p>
               More than a room. A practical, well-kept environment for daily
               living and easy routines.
@@ -154,7 +154,7 @@ function App() {
 
           <div className="amenities-grid">
             <article className="panel-card panel-card-large">
-              <img src={hostelPanorama} alt="JS Boys Hostel rooftop panorama" />
+              <img src={hostelPanorama} alt="J.S Boys Hostel rooftop panorama" />
               <div className="panel-overlay">
                 <span className="panel-badge">Hostel photo</span>
                 <h3>360 Balcony View</h3>
@@ -193,7 +193,7 @@ function App() {
 
           <article className="owner-say-card">
             <div className="owner-say-image-wrap" aria-hidden="true">
-              <img src={hostelExterior} alt="JS Boys Hostel exterior" />
+              <img src={hostelExterior} alt="J.S Boys Hostel exterior" />
             </div>
             <div className="owner-say-split">
               <p className="owner-quote">
@@ -207,7 +207,7 @@ function App() {
                 </div>
                 <div className="owner-say-meta-text">
                   <strong>Bikram Shahi</strong>
-                  <span>JS Boys Hostel</span>
+                  <span>J.S Boys Hostel</span>
                 </div>
               </div>
             </div>
@@ -258,7 +258,7 @@ function App() {
           <div className="section-heading">
             <h2>What Residents Say on Google</h2>
             <p>
-              Real feedback from students and employees who have stayed at JS
+              Real feedback from students and employees who have stayed at J.S
               Boys Hostel.
             </p>
           </div>
@@ -305,7 +305,7 @@ function App() {
 
           <div className="map-wrap">
             <iframe
-              title="JS Boys Hostel location on Google Maps"
+              title="J.S Boys Hostel location on Google Maps"
               className="map-frame"
               src="https://www.google.com/maps?q=JS+Boys+Hostel+Balkumari+Lalitpur&output=embed"
               loading="lazy"
@@ -331,7 +331,7 @@ function App() {
       <footer className="footer">
         <div className="footer-grid">
           <div className="footer-brand-block">
-            <div className="footer-brand">JS Boys Hostel</div>
+            <div className="footer-brand">J.S Boys Hostel</div>
             <p>Managed by Bikram Shahi</p>
             <p>Phone: 9813023251</p>
             <p>Balkumari, Lalitpur</p>
