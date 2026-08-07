@@ -1,0 +1,853 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #051424;
+  color: #d4e4fa;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 80px;
+  padding: 0 32px;
+  background: rgba(5, 20, 36, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b9c6e6;
+}
+
+.brand strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.brand small {
+  display: block;
+  color: #8f9098;
+  font-size: 0.79rem;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #0d1b33;
+  color: #fff;
+  font-weight: 800;
+}
+
+.topnav {
+  display: flex;
+  gap: 24px;
+  color: #c5c6ce;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.book-btn,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.book-btn,
+.btn-primary {
+  background: #b9c6e6;
+  color: #0d1b33;
+  box-shadow: 0 12px 32px rgba(185, 198, 230, 0.16);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.main-content {
+  flex: 1;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 32px;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 20, 36, 0.6) 0%,
+    rgba(5, 20, 36, 0.92) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-content h1 {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(212, 228, 250, 0.92);
+  max-width: 640px;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-pill,
+.offer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(18, 33, 49, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  font-size: 0.8rem;
+}
+
+.hero-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8fe68f;
+}
+
+.hero-social-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(18, 33, 49, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(212, 228, 250, 0.9);
+}
+
+.owner-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(18, 33, 49, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(212, 228, 250, 0.92);
+  font-size: 0.9rem;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatars span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-left: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background: #f6c57a;
+  font-size: 0.8rem;
+}
+
+.avatars span:first-child {
+  margin-left: 0;
+}
+
+.section {
+  padding: 96px 32px;
+}
+
+.amenities-section {
+  background: #051424;
+}
+
+.owner-says-section {
+  background: #081728;
+}
+
+.owner-say-card {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #122131 0%, #1a2c43 100%);
+  border: 1px solid rgba(185, 198, 230, 0.14);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.88fr) minmax(0, 1.2fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.owner-say-image-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 190px;
+}
+
+.owner-say-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.owner-quote {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #fff;
+  margin: 0;
+}
+
+.owner-say-split {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 12px 8px 4px;
+}
+
+.owner-say-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(212, 228, 250, 0.86);
+  text-align: left;
+}
+
+.owner-avatar {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(185, 198, 230, 0.16);
+  border: 1px solid rgba(185, 198, 230, 0.24);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.owner-say-meta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.owner-say-meta strong {
+  color: #d4e4fa;
+}
+
+.adventure-section {
+  background: #0d1c2d;
+}
+
+.reviews-section {
+  background: #081728;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: #122131;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(185, 198, 230, 0.14);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(185, 198, 230, 0.16);
+  border: 1px solid rgba(185, 198, 230, 0.24);
+  color: #fff;
+  font-weight: 800;
+}
+
+.review-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-header-text strong {
+  color: #d4e4fa;
+  font-size: 0.98rem;
+}
+
+.review-header-text span {
+  color: #8f9098;
+  font-size: 0.82rem;
+}
+
+.review-stars {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f6c57a;
+  letter-spacing: 2px;
+}
+
+.review-time {
+  color: #8f9098;
+  font-size: 0.8rem;
+  letter-spacing: normal;
+}
+
+.review-text {
+  color: #c5c6ce;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.reviews-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.location-section {
+  background: #0d1c2d;
+}
+
+.map-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(185, 198, 230, 0.14);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.map-frame {
+  width: 100%;
+  height: 420px;
+  border: 0;
+  display: block;
+}
+
+.rooms-section {
+  background: #0d1c2d;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.section-heading-row {
+  max-width: none;
+  text-align: left;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+}
+
+.section-heading h2,
+.cta-content h2,
+.footer h3 {
+  color: #d4e4fa;
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.section-heading p,
+.cta-content p,
+.footer p,
+.panel-card p,
+.room-content p,
+.adventure-overlay p {
+  color: #c5c6ce;
+  line-height: 1.7;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.panel-card,
+.room-card,
+.adventure-card {
+  background: #122131;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.panel-card-large {
+  grid-column: span 2;
+  position: relative;
+  min-height: 320px;
+  padding: 0;
+}
+
+.panel-card-large img,
+.adventure-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.panel-card-large:hover img,
+.adventure-card:hover img {
+  transform: scale(1.04);
+}
+
+.panel-overlay,
+.adventure-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 20, 36, 0.08) 0%,
+    rgba(5, 20, 36, 0.9) 100%
+  );
+  color: #fff;
+}
+
+.panel-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(185, 198, 230, 0.14);
+  border: 1px solid rgba(185, 198, 230, 0.18);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.amenity-card {
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.amenity-card.dark {
+  background: #1c2b3c;
+  color: #fff;
+}
+
+.amenity-card.dark p,
+.amenity-card.dark h3 {
+  color: #fff;
+}
+
+.adventure-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.adventure-card {
+  position: relative;
+  min-height: 320px;
+}
+
+.adventure-card:first-child {
+  grid-column: span 2;
+  min-height: 460px;
+}
+
+.adventure-card-note {
+  background: linear-gradient(135deg, #122131 0%, #1a2c43 100%);
+}
+
+.adventure-note-card {
+  height: 100%;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.adventure-note-card h3 {
+  margin-top: 4px;
+}
+
+.adventure-note-card p:last-child {
+  color: rgba(212, 228, 250, 0.86);
+  margin-top: 8px;
+}
+
+.adventure-card .adventure-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(5, 20, 36, 0.12) 0%,
+    rgba(5, 20, 36, 0.82) 100%
+  );
+}
+
+.amenity-card:hover,
+.room-card:hover,
+.adventure-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+.icon-badge {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #2c3a4c;
+  font-size: 1.6rem;
+}
+
+.amenity-card h3,
+.room-content h3,
+.adventure-overlay h3 {
+  color: #d4e4fa;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.amenity-card.dark h3,
+.amenity-card.dark p,
+.adventure-overlay h3,
+.adventure-overlay p {
+  color: #fff;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.room-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.room-type-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(185, 198, 230, 0.14);
+  border: 1px solid rgba(185, 198, 230, 0.18);
+  color: #d4e4fa;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.room-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.room-price {
+  text-align: right;
+}
+
+.price {
+  display: block;
+  color: #b9c6e6;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.price-unit {
+  color: #c5c6ce;
+  font-size: 0.9rem;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #273647;
+  color: #d4e4fa;
+  font-size: 0.8rem;
+}
+
+.ghost-btn {
+  width: 100%;
+  border: 2px solid #8f9098;
+  border-radius: 12px;
+  color: #d4e4fa;
+  padding: 12px 16px;
+  background: #122131;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cta-section {
+  padding: 96px 32px 120px;
+  background: #010f1f;
+  color: #eaf1ff;
+}
+
+.cta-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-content h2 {
+  color: #fff;
+}
+
+.cta-content p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer {
+  background: #010f1f;
+  color: #fff;
+  padding: 18px 32px 20px;
+}
+
+.footer-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  justify-content: end;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.84rem;
+}
+
+.footer-brand-block {
+  max-width: 320px;
+}
+
+.footer-brand {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.footer-brand-block p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3px;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 980px) {
+  .amenities-grid,
+  .rooms-grid,
+  .adventure-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .panel-card-large,
+  .adventure-card:first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 16px 20px;
+  }
+
+  .topnav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .hero-section {
+    padding: 100px 20px;
+    min-height: 80vh;
+  }
+
+  .owner-pill {
+    flex-direction: column;
+    border-radius: 20px;
+  }
+
+  .section,
+  .cta-section,
+  .footer {
+    padding: 64px 20px;
+  }
+
+  .section-heading-row {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .owner-say-card {
+    grid-template-columns: 1fr;
+  }
+
+  .owner-say-image-wrap {
+    min-height: 170px;
+  }
+
+  .amenities-grid,
+  .rooms-grid,
+  .adventure-gallery,
+  .reviews-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    height: 300px;
+  }
+
+  .panel-card-large,
+  .adventure-card:first-child {
+    grid-column: span 1;
+    min-height: 320px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    justify-content: start;
+  }
+}
