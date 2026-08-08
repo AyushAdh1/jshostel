@@ -35,8 +35,7 @@ const rooms = [
     price: "NPR 14,500",
     unit: "/month",
     badges: ["Private Corner", "Best for Focus", "Secure Entry"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD6Kvr2L3tzC62jeQ-japFzQVYmDGcSnVZ_cBmeP4WXy4FL2i9jUeFq_CaNWPt0UNi3a_PVQQ-R4244DFzAar6YrKtAXcCFd3Uh659enmp2JshpHr5pIFfVEbnB2nxHXNB8OpP47Eesu1sWjLUNavTr372-LqCMqSWaoC9UyrnkxkENscYTFA-Pdew1mGegFwP_uC-kzD6QAjRVAGn3Q1m6vdVA1gMlT6xU-ScnQQFdy2rcZyPtBY5J",
+    image: hostelExterior,
     description:
       "A quiet room for one resident, ideal for focused study, work, and a simple routine.",
   },
@@ -45,8 +44,7 @@ const rooms = [
     price: "NPR 11,500",
     unit: "/month",
     badges: ["Shared Comfort", "Balanced Price", "Clean Setup"],
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDlDHOYpg6wMvMhiRkjQ9S87ZskczaAw1V_S_3c4ILEgEX_LMsbm87BayKjwvMakLqt9z7S5qqoGdAcgP2N2g9b0efGG3t315Hp1oyDJslWD3r1_B188tY5aoTAnYeiKCXLZwjmSEnj6QMxj6W9KfuojFQhizsSECF5t0sPYzwqLXOPOE68DT8aRJDf1Erjv_2zxXt_xF1AzBiBMmFOPU8HUJ0x7AMs_zHmGx5Kj2ybHhNZa35jrQkh",
+    image: hostelExterior,
     description:
       "A practical two-person option with enough space for a comfortable and steady stay.",
   },
@@ -55,7 +53,7 @@ const rooms = [
     price: "NPR 9,500",
     unit: "/month",
     badges: ["Most Affordable", "Community Feel", "Good for Groups"],
-    image: activityHike,
+    image: hostelExterior,
     description:
       "A budget-friendly setup for three people that keeps the space practical and comfortable.",
   },
@@ -132,7 +130,7 @@ function App() {
     <div className="app-shell">
       <header className="topbar">
         <a className="brand" href="#home" aria-label="J.S Boys Hostel home">
-          <span className="brand-mark">J</span>
+          <span className="brand-mark">J.S</span>
           <span>
             <strong>J.S Boys Hostel</strong>
             <small>Balkumari, Lalitpur</small>
