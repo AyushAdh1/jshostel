@@ -98,14 +98,19 @@ const reviews = [
 ];
 
 const footerLinks = [
-  "Privacy Policy",
-  "Terms of Service",
-  "Contact Us",
-  "Careers",
+  { label: "Rooms", href: "#rooms" },
+  { label: "Amenities", href: "#amenities" },
+  { label: "Reviews", href: "#reviews" },
+  { label: "Location", href: "#location" },
 ];
+
+const averageRating = (
+  reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+).toFixed(1);
 
 function App() {
   const [lightbox, setLightbox] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!lightbox) return undefined;
@@ -134,19 +139,47 @@ function App() {
           </span>
         </a>
 
-        <nav className="topnav" aria-label="Primary navigation">
-          <a href="#amenities">Amenities</a>
-          <a href="#owner-says">Owner Says</a>
-          <a href="#activities">Activities</a>
-          <a href="#rooms">Rooms</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#location">Location</a>
+        <nav
+          className={`topnav${menuOpen ? " open" : ""}`}
+          aria-label="Primary navigation"
+        >
+          <a href="#amenities" onClick={() => setMenuOpen(false)}>
+            Amenities
+          </a>
+          <a href="#owner-says" onClick={() => setMenuOpen(false)}>
+            Owner Says
+          </a>
+          <a href="#activities" onClick={() => setMenuOpen(false)}>
+            Activities
+          </a>
+          <a href="#rooms" onClick={() => setMenuOpen(false)}>
+            Rooms
+          </a>
+          <a href="#reviews" onClick={() => setMenuOpen(false)}>
+            Reviews
+          </a>
+          <a href="#location" onClick={() => setMenuOpen(false)}>
+            Location
+          </a>
           <a href="tel:9813023251">Call</a>
         </nav>
 
-        <a className="book-btn" href="tel:9813023251">
-          Call Now
-        </a>
+        <div className="header-actions">
+          <a className="book-btn" href="tel:9813023251">
+            Call Now
+          </a>
+          <button
+            type="button"
+            className="nav-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </header>
 
       <main className="main-content" id="home">
@@ -181,8 +214,30 @@ function App() {
           </div>
         </section>
 
+        <div className="stat-strip">
+          <div className="stat-strip-inner">
+            <div className="stat-item">
+              <span className="stat-value">{rooms.length}</span>
+              <span className="stat-label">Room Types</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-value">{averageRating}★</span>
+              <span className="stat-label">Google Rating</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-value">NPR 9.5k+</span>
+              <span className="stat-label">Starting / Month</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-value">Balkumari</span>
+              <span className="stat-label">Lalitpur Location</span>
+            </div>
+          </div>
+        </div>
+
         <section id="amenities" className="section amenities-section">
           <div className="section-heading">
+            <span className="eyebrow">Why Stay Here</span>
             <h2>Life at J.S Boys Hostel</h2>
             <p>
               More than a room. A practical, well-kept environment for daily
@@ -240,6 +295,7 @@ function App() {
 
         <section id="owner-says" className="section owner-says-section">
           <div className="section-heading">
+            <span className="eyebrow">From the Owner</span>
             <h2>What the Owner Says</h2>
             <p>
               A short, natural note about the hostel and the kind of stay we
@@ -285,6 +341,7 @@ function App() {
 
         <section id="activities" className="section adventure-section">
           <div className="section-heading">
+            <span className="eyebrow">Beyond the Room</span>
             <h2>Fun & Activities</h2>
             <p>
               Life here isn't just about the room. Residents regularly join
@@ -333,6 +390,7 @@ function App() {
         <section id="rooms" className="section rooms-section">
           <div className="section-heading section-heading-row">
             <div>
+              <span className="eyebrow">Room Options</span>
               <h2>Rest & Recharge</h2>
               <p>
                 Choose the room style that fits your routine, budget, and
@@ -375,6 +433,7 @@ function App() {
 
         <section id="reviews" className="section reviews-section">
           <div className="section-heading">
+            <span className="eyebrow">Resident Voices</span>
             <h2>What Residents Say on Google</h2>
             <p>
               Real feedback from students and employees who have stayed at J.S
@@ -418,6 +477,7 @@ function App() {
 
         <section id="location" className="section location-section">
           <div className="section-heading">
+            <span className="eyebrow">Get Here</span>
             <h2>Find Us</h2>
             <p>Located in Balkumari, Lalitpur — easy to reach and close to daily essentials.</p>
           </div>
@@ -457,11 +517,15 @@ function App() {
           </div>
           <div className="footer-links">
             {footerLinks.map((link) => (
-              <a href="#" key={link}>
-                {link}
+              <a href={link.href} key={link.label}>
+                {link.label}
               </a>
             ))}
           </div>
+        </div>
+        <div className="footer-bottom">
+          © {new Date().getFullYear()} J.S Boys Hostel, Balkumari. All rights
+          reserved.
         </div>
       </footer>
 
